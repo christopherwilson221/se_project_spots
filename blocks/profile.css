@@ -48,6 +48,11 @@
   background-color: transparent;
   text-align: left;
   opacity: .7;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  display: flex;
+  gap: 8px;
 }
 
 .profile__add-btn{
@@ -59,8 +64,13 @@
   border-radius: 8px;
   border-style: none;
   color: #FCF5E5;
-
-  ;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 627px) {
