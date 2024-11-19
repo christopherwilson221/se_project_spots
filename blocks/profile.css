@@ -94,7 +94,7 @@
     align-items: center;
     text-align: center;
     margin: auto;
-    padding:0 0 20px;
+    padding: 0 0 20px;
   }
 
   .profile__avatar {
@@ -119,7 +119,7 @@
     max-width: 288px;
   }
 
-  .profile__edit-btn{
+  .profile__edit-btn {
     margin: auto;
   }
 
