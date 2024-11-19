@@ -1,4 +1,4 @@
-.footer{
+.footer {
   display: flex;
   justify-content: center;
   border-top: 1px;
@@ -8,6 +8,7 @@
   padding: 60px;
 }
 
-.footer__text{
+.footer__text {
   margin: auto 0;
+  color: #212121b2;
 }
