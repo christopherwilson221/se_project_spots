@@ -1,8 +1,8 @@
 .page {
   background-color: #fcf5e5;
+  background-size: cover;
   min-height: 100vh;
-  font-family: Poppins, Arial, Helvetica, sans-serif;
-  max-width: 1440px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .page_section {

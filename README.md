@@ -30,4 +30,6 @@ Website deployed to GitHub Pages
 https://christopherwilson221.github.io/se_project_spots/
 
 
-Link to readme video: will be done with final iterations, when issues are worked.
+Link to readme video: 
+https://drive.google.com/file/d/11fNulQtwK1-e9NFoQU0IISFbuDEGPtSk/view?usp=sharing -- Google View
+https://drive.google.com/file/d/1VuvIfbvSGFEq0WNa93A5gYGQTm_-QMD-/view?usp=sharing   -- Code View
