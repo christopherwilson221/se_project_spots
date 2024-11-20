@@ -22,6 +22,7 @@ This project is made so all the elements are displayed correctly on popular scre
 -BEM Block management
 -Font import and usage
 -Buttons
+-Sizing
 
 **Deployment**
 
