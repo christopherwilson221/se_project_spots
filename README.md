@@ -34,3 +34,7 @@ https://christopherwilson221.github.io/se_project_spots/
 Link to readme videos: 
 https://drive.google.com/file/d/11fNulQtwK1-e9NFoQU0IISFbuDEGPtSk/view?usp=sharing -- Google View
 https://drive.google.com/file/d/1VuvIfbvSGFEq0WNa93A5gYGQTm_-QMD-/view?usp=sharing   -- Code View
+
+//Second video shows the code view, explaining the difference in change from flex/grid and why it is easier in grid, with explanation on BEM block reasoning as well//
+
+//Sound is broken on second video and I cannot seem to get my recorder to create new sound. Attempting to fix but if this is passing now please let me know//
