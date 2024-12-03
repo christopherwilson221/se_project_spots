@@ -15,7 +15,7 @@
   padding: 0 16px;
 }
 
-.modal__opened {
+.modal_opened {
   visibility: visible;
 }
 
@@ -76,6 +76,14 @@
   font-size: 20px;
   line-height: 1;
   color: rgba(33, 33, 33, 1);
+}
+
+.modal__submit-button:hover {
+  cursor: pointer;
+}
+
+.modal__close-button:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {

@@ -37,11 +37,7 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
-                <img
-                  src=""
-                  alt=""
-                  class="card__image"
-                />
+                <img src="" alt="" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title"></h2>
                   <button type="button" class="card__like-button"></button>
@@ -51,25 +47,36 @@
           </ul>
         </section>
       </main>
-      <footer class="footer page_section">
+      <footer class="footer page__section">
         <p class="footer__text">2023 © Spots</p>
       </footer>
-    <div class="modal" id="edit-modal">
-    <div class="modal__container">
-    <button type="submit" class="modal__close-button"></button>
-    <h2 class="modal__title">Edit Profile</h2>
-    <form name="edit-profile" class="modal__form">
-      <label for="profile-name-input" class="modal__label">
-        Name
-        <input type="text" id="profile-name-input" placeholder="Type your name" class="modal__input">
-      </label>
-      <label for="profile-description-input" class="modal__label">
-        Description
-        <input type="text" id="profile-description-input" placeholder="Describe yourself" class="modal__input">
-      </label>
-      <button type="submit" class="modal__submit-button">Save</button>
-    </form>
-    </div>
+      <div class="modal" id="edit-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-button"></button>
+          <h2 class="modal__title">Edit Profile</h2>
+          <form name="edit-profile" class="modal__form">
+            <label for="profile-name-input" class="modal__label">
+              Name
+              <input
+                type="text"
+                id="profile-name-input"
+                placeholder="Type your name"
+                class="modal__input"
+              />
+            </label>
+            <label for="profile-description-input" class="modal__label">
+              Description
+              <input
+                type="text"
+                id="profile-description-input"
+                placeholder="Describe yourself"
+                class="modal__input"
+              />
+            </label>
+            <button type="submit" class="modal__submit-button">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
     <script defer src="./scripts/index.js"></script>
   </body>
