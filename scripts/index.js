@@ -46,10 +46,9 @@ const addModalNameInput = addCardModal.querySelector(
 );
 const addFormElement = addCardModal.querySelector(".modal__form");
 
-//adding these three lines removes the cards already listed, unable to find online why//
 const previewModal = document.querySelector("#preview__modal");
-const previewModalImageEl = previewModal.querySelector(".modal__image");
-const previewModalCaptionEl = previewModal.querySelector(".modal_caption");
+const previewModalImageEl = document.querySelector(".modal__image");
+const previewModalCaptionEl = document.querySelector(".modal_caption");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
