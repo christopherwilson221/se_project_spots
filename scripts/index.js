@@ -102,10 +102,9 @@ function handleEditFormSubmit(evt) {
   closeModal(editModal);
 }
 
-//set the name and link, but it is not reading them?//
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
-  const inputValues = { link: addModalLinkInput, name: addModalNameInput};
+  const inputValues = { link: addModalLinkInput.value, name: addModalNameInput.value};
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   closeModal(addCardModal);
