@@ -46,9 +46,11 @@ const addModalNameInput = addCardModal.querySelector(
 );
 const addFormElement = addCardModal.querySelector(".modal__form");
 
-const previewModal = document.querySelector("#preview__modal");
+
+const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = document.querySelector(".modal__image");
 const previewModalCaptionEl = document.querySelector(".modal_caption");
+const previewModalCloseButton = previewModal.querySelector(".modal__close-button");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -68,7 +70,7 @@ function getCardElement(data) {
   cardImageEL.setAttribute("alt", data.name);
 
   cardLikeBtn.addEventListener("click", () =>{
-    cardLikeBtn.classlist.toggle("card__like-button_liked");
+    cardLikeBtn.classList.toggle("card__like-button_liked");
   });
 
   cardDeletebtn.addEventListener("click", () =>{
@@ -100,9 +102,10 @@ function handleEditFormSubmit(evt) {
   closeModal(editModal);
 }
 
+//set the name and link, but it is not reading them?//
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
-  const inputValues = {name:addModalNameInput, link: addModalLinkInput};
+  const inputValues = { link: addModalLinkInput, name: addModalNameInput};
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   closeModal(addCardModal);
@@ -127,6 +130,11 @@ newPostButton.addEventListener("click", () => {
 addModalCloseButton.addEventListener("click", () => {
   closeModal(addCardModal);
 });
+
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
+
 
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
