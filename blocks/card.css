@@ -37,6 +37,7 @@
   border: none;
   background-color: transparent;
   opacity: 0.4;
+  background-repeat: no-repeat;
 }
 
 .card__like-button:hover {
@@ -47,11 +48,13 @@
 .card__like-button_liked{
   background-image: url("../images/liked.svg");
   opacity: 1;
+  background-repeat: no-repeat;
 }
 
 .card__like-button_liked:hover{
   background-image: url("../images/liked-hov.svg");
   opacity: 1;
+  cursor: pointer;
 }
 
 .card__delete-button{
@@ -67,6 +70,7 @@
 
 .card__delete-button:hover{
   background-image: url("../images/deletehov.svg");
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {

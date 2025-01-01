@@ -35,13 +35,17 @@
 
 .modal__container_type_preview {
   padding: 0;
+  margin: auto;
   background: none;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
   font-size: 20px;
   line-height: 24px;
+  border-radius: 8px;
 }
+/*could use a suggestion here, I have tried most displays and position but cannot get the card to show as centered for the preview modal.*/
 
 .modal__image {
   max-width: 80vw;
@@ -62,11 +66,17 @@
 }
 
 .modal__close-type-preview {
-  background-image: url("../images/previewclose.png");
-  top: 0;
-  right: -12.5px;
+  background: url("../images/previewclose.svg");
   opacity: 1;
-  background-color: none;
+  position: static;
+  margin: 0;
+  border: none;
+}
+
+.modal__row-container{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
 }
 
 .modal__title {
@@ -122,6 +132,7 @@
 
 .modal__input:hover {
   opacity: 1;
+  cursor: pointer;
 }
 
 .modal__submit-button:hover {
@@ -173,8 +184,7 @@
 
   .modal__container_type_preview {
     display: flex;
-    flex-direction: column;
-    width: 90vw;
+    flex-direction: column-re;
   }
 
   .modal_caption{
@@ -187,10 +197,16 @@
     align-self: flex-start;
   }
 
+  .modal__row-container{
+    flex-direction: column-reverse;
+  }
+
   .modal__close-type-preview{
     padding: 0px;
-    position: absolute;
-    top: -41px;
-    right: 16px;
+    align-self: flex-end;
+  }
+
+  .modal__image{
+    width: 100vw;
   }
 }
