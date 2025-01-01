@@ -39,6 +39,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 .modal__image {
@@ -107,13 +109,13 @@
 .modal_caption {
   top: 750px;
   left: 223px;
-  padding: 4px 8px;
+  padding: 4px 12px 4px 8px;
   border-radius: 8px;
   background: rgba(33, 33, 33, 1);
   color: rgba(255, 255, 255, 1);
   font-size: 20px;
   line-height: 24px;
-  margin: 0;
+  margin-top: 8px;
   display: inline-block;
   align-self: flex-start;
 }
@@ -175,14 +177,20 @@
     width: 90vw;
   }
 
+  .modal_caption{
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
   .modal_caption {
     display: inline-block;
     align-self: flex-start;
   }
 
-  .modal__close-button {
+  .modal__close-type-preview{
+    padding: 0px;
     position: absolute;
     top: -41px;
-    left: 264px;
+    right: 16px;
   }
 }
