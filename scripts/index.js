@@ -53,7 +53,7 @@ const addFormElement = addCardModal.querySelector(".modal__form");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = document.querySelector(".modal__image");
-const previewModalCaptionEl = document.querySelector(".modal_caption");
+const previewModalCaptionEl = document.querySelector(".modal__caption");
 const previewModalCloseButton = previewModal.querySelector(".modal__close-button");
 
 const cardTemplate = document.querySelector("#card-template");

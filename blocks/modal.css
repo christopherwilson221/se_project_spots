@@ -65,7 +65,7 @@
   background-color: #fff;
 }
 
-.modal__close-type-preview {
+.modal__close-button_type_preview {
   background: url("../images/previewclose.svg");
   opacity: 1;
   position: static;
@@ -73,7 +73,7 @@
   border: none;
 }
 
-.modal__row-container{
+.modal__row-container {
   display: flex;
   flex-direction: row;
   gap: 12px;
@@ -116,7 +116,7 @@
   color: rgba(33, 33, 33, 1);
 }
 
-.modal_caption {
+.modal__caption {
   top: 750px;
   left: 223px;
   padding: 4px 12px 4px 8px;
@@ -144,7 +144,7 @@
   opacity: 1;
 }
 
-.modal__close-type-preview:hover {
+.modal__close-button_type_preview:hover {
   opacity: 40%;
   cursor: pointer;
 }
@@ -168,6 +168,10 @@
     right: 12px;
   }
 
+  .modal__close-button_type_preview{
+    align-self: flex-end;
+  }
+
   .modal__label {
     margin-bottom: 24px;
   }
@@ -184,29 +188,23 @@
 
   .modal__container_type_preview {
     display: flex;
-    flex-direction: column-re;
   }
 
-  .modal_caption{
+  .modal__caption {
     font-size: 16px;
     line-height: 19.2px;
   }
 
-  .modal_caption {
+  .modal__caption {
     display: inline-block;
     align-self: flex-start;
   }
 
-  .modal__row-container{
+  .modal__row-container {
     flex-direction: column-reverse;
   }
 
-  .modal__close-type-preview{
-    padding: 0px;
-    align-self: flex-end;
-  }
-
-  .modal__image{
+  .modal__image {
     width: 100vw;
   }
 }
