@@ -111,9 +111,7 @@ function handleAddFormSubmit(evt) {
   const inputValues = { link: addModalLinkInput.value, name: addModalNameInput.value};
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  /*inputValues.reset/.clear is not being recongnized
-  inputValues.reset();
-  */
+  /*clear();/* call function?*/
   closeModal(addCardModal);
 }
 
