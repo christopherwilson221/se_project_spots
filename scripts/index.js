@@ -111,7 +111,8 @@ function handleAddFormSubmit(evt) {
   const inputValues = { link: addModalLinkInput.value, name: addModalNameInput.value};
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  /*clear();/* call function?*/
+  addModalLinkInput.value = '';
+  addModalNameInput.value = '';
   closeModal(addCardModal);
 }
 
