@@ -12,7 +12,7 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     `#${inputElement.id}-error`
   );
   errorMessageElement.textContent = errorMessage;
-  inputElement.classList.add("modal__input_type_error");/*config.inactiveButtonClass pulling error, can't find why this would be*/
+  inputElement.classList.add("config.inactiveButtonClass");
 };
 
 const hideInputError = (formElement, inputElement, config) => {
@@ -20,7 +20,7 @@ const hideInputError = (formElement, inputElement, config) => {
     `#${inputElement.id}-error`
   );
   errorMessageElement.textContent = "";
-  inputElement.classList.remove("modal__input_type_error");/*config.inactiveButtonClass pulling error, can't find why this would be*/
+  inputElement.classList.remove("config.inactiveButtonClass");
 };
 
 const checkInputValidity = (formElement, inputElement) => {
@@ -32,14 +32,13 @@ const checkInputValidity = (formElement, inputElement) => {
 };
 
 const hasInvalidInput = (inputList) => {
-  console.log(typeof inputList);/*logs as an array*/
-  return inputList.some((input) => {/* not a function error but passing an array?*/
+  console.log(typeof inputList);
+  return inputList.some((input) => {
     return !input.validity.valid;
   });
 };
 
-function toggleButtonState(inputList, buttonElement, config) {
-  console.log(hasInvalidInput(inputList));
+const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
     disableButton(buttonElement);
   } else {
@@ -70,7 +69,7 @@ const setEventListeners = (formElement, config) => {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement, config);
-      toggleButtonState(inputElement, buttonElement, config);
+      toggleButtonState(inputList, buttonElement, config);
     });
   });
 };

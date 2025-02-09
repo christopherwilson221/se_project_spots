@@ -93,10 +93,34 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === 'Escape') {
+      closeModal(modal);
+    }
+  });
+/* selecting with (event.target.id != "modal_opened") (!$(event.target).closest("modal_opened")) (evt.target != this.modal) (!modal == evt.target)
+  document.addEventListener("click", function(evt) {
+    if (evt.target.classList.contains("modal_opened")) {
+      closeModal(modal);
+    }
+  });
+*/
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", (evt) => {
+    if (evt.key === 'Escape') {
+      closeModal(modal);
+    }
+  });
+  /*
+  document.removeEventListener("click", (evt) => {
+    if ((evt.target.class != "modal_opened")) {
+      closeModal(modal);
+    }
+  });
+  */
 }
 
 function handleEditFormSubmit(evt) {
@@ -116,7 +140,8 @@ function handleAddFormSubmit(evt) {
   cardsList.prepend(cardElement);
   addModalLinkInput.value = "";
   addModalNameInput.value = "";
-  disableButton(addCardSubmit, config);
+  disableButton(addCardSubmit, settings);
+  /* toggleButtonState(inputList, buttonElement); why did I put this line?*/
   closeModal(addCardModal);
 }
 
@@ -134,12 +159,17 @@ editModalCloseButton.addEventListener("click", () => {
   closeModal(editModal);
 });
 
-editModalCloseButton.addEventListener("keydown", (e) => {
-  if (e == "Escape"){
-  closeModal(editModal);};
+/* for outside click const a area outside of modal?
+document.addEventListener("click", (evt) => {
+  if (!insidemodal == evt){
+
+  closeModal(editModal);
+  };
 });
+*/
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
+
 addFormElement.addEventListener("submit", handleAddFormSubmit);
 
 newPostButton.addEventListener("click", () => {
@@ -150,10 +180,10 @@ addModalCloseButton.addEventListener("click", () => {
   closeModal(addCardModal);
 });
 
-addCardModal.addEventListener("keydown", function(e) {
-  if (e.keycode == 27){
-  closeModal(addCardModal);
-};
+addCardModal.addEventListener("keydown", function (e) {
+  if (e.keycode == 27) {
+    closeModal(addCardModal);
+  }
 });
 
 previewModalCloseButton.addEventListener("click", () => {
