@@ -43,12 +43,11 @@ const editModalDescriptionInput = editModal.querySelector(
 
 const newPostButton = document.querySelector(".profile__add-btn");
 const addCardModal = document.querySelector("#add-card-modal");
-const cardbutton = addCardModal.querySelector(".modal__form");
 const addFormElement = addCardModal.querySelector(".modal__form");
 const addModalCloseButton = addCardModal.querySelector(".modal__close-button");
 const addModalLinkInput = addCardModal.querySelector("#add-card-link-input");
 const addModalNameInput = addCardModal.querySelector("#add-card-name-input");
-const addCardSubmit = addCardModal.querySelector(".modal__form");
+const addCardSubmit = addCardModal.querySelector(".modal__submit-button");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = document.querySelector(".modal__image");
@@ -89,38 +88,30 @@ function getCardElement(data) {
   });
 
   return cardElement;
-}
+};
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", (evt) => {
     if (evt.key === 'Escape') {
       closeModal(modal);
-    }
+    document.removeEventListener("keydown", (evt) => {
+      if (evt.key === 'Escape') {
+        closeModal(modal);
+      }
+    });
+  }
   });
-/* selecting with (event.target.id != "modal_opened") (!$(event.target).closest("modal_opened")) (evt.target != this.modal) (!modal == evt.target)
-  document.addEventListener("click", function(evt) {
-    if (evt.target.classList.contains("modal_opened")) {
+/* selecting with (event.target.id != "modal_opened") (!$(event.target).closest("modal_opened")) (evt.target != this.modal) (!modal == evt.target) 
+  document.addEventListener("click", (evt) => {
+    if (!evt.target(modal)) {
       closeModal(modal);
     }
-  });
-*/
+  });  */
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", (evt) => {
-    if (evt.key === 'Escape') {
-      closeModal(modal);
-    }
-  });
-  /*
-  document.removeEventListener("click", (evt) => {
-    if ((evt.target.class != "modal_opened")) {
-      closeModal(modal);
-    }
-  });
-  */
 }
 
 function handleEditFormSubmit(evt) {
@@ -141,7 +132,6 @@ function handleAddFormSubmit(evt) {
   addModalLinkInput.value = "";
   addModalNameInput.value = "";
   disableButton(addCardSubmit, settings);
-  /* toggleButtonState(inputList, buttonElement); why did I put this line?*/
   closeModal(addCardModal);
 }
 
@@ -180,9 +170,9 @@ addModalCloseButton.addEventListener("click", () => {
   closeModal(addCardModal);
 });
 
-addCardModal.addEventListener("keydown", function (e) {
-  if (e.keycode == 27) {
-    closeModal(addCardModal);
+document.removeEventListener("keydown", (evt) => {
+  if (evt.key === 'Escape') {
+    closeModal(modal);
   }
 });
 
