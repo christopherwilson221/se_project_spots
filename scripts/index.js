@@ -102,7 +102,7 @@ function openModal(modal) {
     });
   }
   });
-/* selecting with (event.target.id != "modal_opened") (!$(event.target).closest("modal_opened")) (evt.target != this.modal) (!modal == evt.target) 
+/* selecting with (event.target.id != "modal_opened") (!$(event.target).closest("modal_opened")) (evt.target != this.modal) (!modal == evt.target)
   document.addEventListener("click", (evt) => {
     if (!evt.target(modal)) {
       closeModal(modal);
