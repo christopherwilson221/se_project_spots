@@ -59,6 +59,15 @@ const previewModalCloseButton = previewModal.querySelector(
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
+const modals = document.querySelectorAll(".modal");
+
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const activeModal = document.querySelector(".modal_opened");
+    closeModal(activeModal);
+  }
+}
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -88,30 +97,33 @@ function getCardElement(data) {
   });
 
   return cardElement;
-};
+}
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === 'Escape') {
-      closeModal(modal);
-    document.removeEventListener("keydown", (evt) => {
-      if (evt.key === 'Escape') {
-        closeModal(modal);
-      }
-    });
-  }
-  });
-/* selecting with (event.target.id != "modal_opened") (!$(event.target).closest("modal_opened")) (evt.target != this.modal) (!modal == evt.target)
-  document.addEventListener("click", (evt) => {
-    if (!evt.target(modal)) {
+  document.addEventListener("keyup", handleEscape);
+}
+
+modals.forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    if (
+      evt.target.classList.contains("modal") ||
+      evt.target.classList.contains("modal__close-button")
+    ) {
       closeModal(modal);
     }
-  });  */
-}
+  });
+});
+
+// document.addEventListener("click", (evt) => {
+//   if (!evt.target.classList.contains("modal")) {
+//     closeModal(modal);
+//   }
+// });
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keyup", handleEscape);
 }
 
 function handleEditFormSubmit(evt) {
@@ -145,9 +157,9 @@ profileEditButton.addEventListener("click", () => {
   openModal(editModal);
 });
 
-editModalCloseButton.addEventListener("click", () => {
-  closeModal(editModal);
-});
+// editModalCloseButton.addEventListener("click", () => {
+//   closeModal(editModal);
+// });
 
 /* for outside click const a area outside of modal?
 document.addEventListener("click", (evt) => {
@@ -171,7 +183,7 @@ addModalCloseButton.addEventListener("click", () => {
 });
 
 document.removeEventListener("keydown", (evt) => {
-  if (evt.key === 'Escape') {
+  if (evt.key === "Escape") {
     closeModal(modal);
   }
 });
