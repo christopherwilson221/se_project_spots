@@ -157,39 +157,12 @@ profileEditButton.addEventListener("click", () => {
   openModal(editModal);
 });
 
-// editModalCloseButton.addEventListener("click", () => {
-//   closeModal(editModal);
-// });
-
-/* for outside click const a area outside of modal?
-document.addEventListener("click", (evt) => {
-  if (!insidemodal == evt){
-
-  closeModal(editModal);
-  };
-});
-*/
-
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 
 addFormElement.addEventListener("submit", handleAddFormSubmit);
 
 newPostButton.addEventListener("click", () => {
   openModal(addCardModal);
-});
-
-addModalCloseButton.addEventListener("click", () => {
-  closeModal(addCardModal);
-});
-
-document.removeEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    closeModal(modal);
-  }
-});
-
-previewModalCloseButton.addEventListener("click", () => {
-  closeModal(previewModal);
 });
 
 initialCards.forEach((item) => {
