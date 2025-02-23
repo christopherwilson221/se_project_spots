@@ -12,7 +12,7 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     `#${inputElement.id}-error`
   );
   errorMessageElement.textContent = errorMessage;
-  inputElement.classList.add('config.inactiveButtonClass'); /*cannot remove this '' from the config selector, breaks the open edit modal function, only works with ticks*/
+  inputElement.classList.add(config.inactiveButtonClass); /*cannot remove this '' from the config selector, breaks the open edit modal function, only works with ticks, removed for test submit*/
 };
 
 const hideInputError = (formElement, inputElement, config) => {
@@ -20,7 +20,7 @@ const hideInputError = (formElement, inputElement, config) => {
     `#${inputElement.id}-error`
   );
   errorMessageElement.textContent = "";
-  inputElement.classList.remove('config.inactiveButtonClass'); /*cannot remove this '' from the config selector, breaks the open edit modal function*/
+  inputElement.classList.remove(config.inactiveButtonClass); /*cannot remove this '' from the config selector, breaks the open edit modal function*/
 };
 
 const checkInputValidity = (formElement, inputElement) => {
