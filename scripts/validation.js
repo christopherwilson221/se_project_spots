@@ -12,15 +12,15 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     `#${inputElement.id}-error`
   );
   errorMessageElement.textContent = errorMessage;
-  inputElement.classList.add(config.inactiveButtonClass); /* I cannot find anywhere what this config. needs to be to select the inactiveButtonClass class*/
+  inputElement.classList.add(config.inactiveButtonClass);
 };
 
 const hideInputError = (formElement, inputElement, config) => {
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );
-  /*errorMessageElement.textContent = '' brings up error it cannot clear the text*/;
-  inputElement.classList.remove(config.inactiveButtonClass); /* I cannot find anywhere what this config. needs to be to select the inactiveButtonClass class*/
+  errorMessageElement.textContent = '';
+  inputElement.classList.remove(config.inactiveButtonClass);
 };
 
 const checkInputValidity = (formElement, inputElement, config) => {
