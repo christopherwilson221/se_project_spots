@@ -2,7 +2,7 @@ const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-button",
-  inactiveButtonClass: "modal__submit-button_disabled",
+  inactiveButtonClass: ".modal__submit-button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
@@ -12,22 +12,22 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     `#${inputElement.id}-error`
   );
   errorMessageElement.textContent = errorMessage;
-  inputElement.classList.add(config.inactiveButtonClass); /*cannot remove this '' from the config selector, breaks the open edit modal function, only works with ticks, removed for test submit*/
+  inputElement.classList.add(config.inactiveButtonClass); /* I cannot find anywhere what this config. needs to be to select the inactiveButtonClass class*/
 };
 
 const hideInputError = (formElement, inputElement, config) => {
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );
-  errorMessageElement.textContent = "";
-  inputElement.classList.remove(config.inactiveButtonClass); /*cannot remove this '' from the config selector, breaks the open edit modal function*/
+  /*errorMessageElement.textContent = '' brings up error it cannot clear the text*/;
+  inputElement.classList.remove(config.inactiveButtonClass); /* I cannot find anywhere what this config. needs to be to select the inactiveButtonClass class*/
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, config);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, config);
   }
 };
 
