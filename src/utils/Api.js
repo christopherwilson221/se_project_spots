@@ -2,7 +2,6 @@ class Api {
   constructor({baseUrl, headers}) {
     this._baseUrl = baseUrl;
     this._headers = headers;
-    // constructor body
   }
 
   getAppInfo() {
@@ -21,6 +20,7 @@ class Api {
       headers: this._headers,
     }).then(this._checkResponse);
   }
+
 
   _checkResponse(res){
     if (res.ok) {
@@ -67,7 +67,6 @@ createCardInfo({ name, link }) {
   return fetch(`${this._baseUrl}/cards`, {
     method: "POST",
     headers: this._headers,
-    // Send the data in the body as a JSON string.
     body: JSON.stringify({
       link,
       name,
@@ -79,7 +78,6 @@ deleteCardInfo({ name, about }) {
   return fetch(`${this._baseUrl}/cards/:cardId`, {
     method: "DELETE",
     headers: this._headers,
-    // Send the data in the body as a JSON string.
     body: JSON.stringify({
       name,
       about,
@@ -87,28 +85,19 @@ deleteCardInfo({ name, about }) {
   }).then(this._checkResponse);
 }
 
-likeCardInfo({ name, about }) {
-  return fetch(`${this._baseUrl}/cards/:cardId/likes`, {
+likeCardInfo(cardId) {
+  return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
     method: "PUT",
     headers: this._headers,
-    // Send the data in the body as a JSON string.
-    body: JSON.stringify({
-      name,
-      about,
-    }),
   }).then(this._checkResponse);
 }
 
-dislikeCardInfo({ name, about }) {
-  return fetch(`${this._baseUrl}/cards/:cardId/likes`, {
+dislikeCardInfo(cardId) {
+  return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
     method: "DELETE",
     headers: this._headers,
-    // Send the data in the body as a JSON string.
-    body: JSON.stringify({
-      name,
-      about,
-    }),
   }).then(this._checkResponse);
 }
 }
+
 export default Api;
