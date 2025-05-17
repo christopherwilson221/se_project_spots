@@ -14,8 +14,8 @@ api
 .getAppInfo()
   .then(([cards, userData]) => {
     cards.forEach((item) => {
-    const cardElement = getCardElement(item);
-    cardsList.prepend(cardElement);
+     const cardElement = getCardElement(item);
+     cardsList.prepend(cardElement);
     });
     profileName.textContent = userData.name;
     profileDescription.textContent = userData.about;
@@ -93,8 +93,6 @@ function getCardElement(data) {
   cardImageEL.setAttribute("src", data.link);
   cardImageEL.setAttribute("alt", data.name);
 
-  console.log('Card data:', data);
-
   if(data.isLiked){
     cardLikeBtn.classList.add("card__like-button_liked")
   }
@@ -115,9 +113,11 @@ function getCardElement(data) {
   });
 
   cardDeletebtn.addEventListener("click", () => {
-    cardToDelete = cardElement;
+    cardToDelete = {
+      element: cardElement,
+      id: cardId
+    };
     openModal(cardDeleteModal);
-   //* cardElement.remove();
   });
 
   cardImageEL.addEventListener("click", () => {
@@ -175,17 +175,17 @@ function handleAddFormSubmit(evt) {
     link: addModalLinkInput.value ,
     name: addModalNameInput.value
   })
-  .then((data) =>{
+   .then((data) =>{
     const cardElement = getCardElement(data);
     cardsList.prepend(cardElement);
-    data.link = "";
-    data.name = "";
+    addFormElement.reset();
     disableButton(addCardSubmit);
     closeModal(addCardModal);
   })
   .finally(() =>{
-  handleLoadingState(addCardSubmit, false)}
-)};
+  handleLoadingState(addCardSubmit, false)
+});
+}
 
 function handleAvatarFormSubmit(evt){
   evt.preventDefault();
@@ -231,13 +231,20 @@ avatarEditButton.addEventListener("click", () => {
   openModal(avatarModal);
 });
 
-cardModalCancel.addEventListener("click", () => {closeModal(cardDeleteModal)});
+cardModalCancel.addEventListener("click", () => {
+  closeModal(cardDeleteModal) });
 
 cardModalConfirm.addEventListener("click", () => {
   handleDeleteLoadingState(cardModalConfirm, true);
-   cardToDelete.remove();
+  api.deleteCardInfo(cardToDelete.id)
+  .then(() => {
+   cardToDelete.element.remove();
    closeModal(cardDeleteModal);
+  })
+  .catch(console.error)
+  .finally(() => {
    handleDeleteLoadingState(cardModalConfirm, false);
+  });
    });
 
 

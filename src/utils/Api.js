@@ -74,14 +74,10 @@ createCardInfo({ name, link }) {
   }).then(this._checkResponse);
 }
 
-deleteCardInfo({ name, about }) {
-  return fetch(`${this._baseUrl}/cards/:cardId`, {
+deleteCardInfo(cardId) {
+  return fetch(`${this._baseUrl}/cards/${cardId}`, {
     method: "DELETE",
-    headers: this._headers,
-    body: JSON.stringify({
-      name,
-      about,
-    }),
+    headers: this._headers
   }).then(this._checkResponse);
 }
 
