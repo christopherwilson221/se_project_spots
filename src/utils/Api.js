@@ -21,14 +21,12 @@ class Api {
     }).then(this._checkResponse);
   }
 
-
   _checkResponse(res){
     if (res.ok) {
       return res.json();
     }
     return Promise.reject(`Error: ${res.status}`);
   }
-
 
   editUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
@@ -50,7 +48,6 @@ class Api {
       }),
     }).then(this._checkResponse);
   }
-
 
 getCardInfo({ name, about }) {
   return fetch(`${this._baseUrl}/cards`, {

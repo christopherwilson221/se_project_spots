@@ -10,8 +10,7 @@ const api = new Api({
   }
 });
 
-api
-.getAppInfo()
+api.getAppInfo()
   .then(([cards, userData]) => {
     cards.forEach((item) => {
      const cardElement = getCardElement(item);
@@ -21,9 +20,7 @@ api
     profileDescription.textContent = userData.about;
     avatarPicture.src = userData.avatar;
   })
-.catch(console.error);
-
-
+  .catch(console.error);
 
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
@@ -168,6 +165,7 @@ function handleEditFormSubmit(evt) {
       handleLoadingState(editModalSubmit, false)}
     )};
 
+
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
   handleLoadingState(addCardSubmit, true);
@@ -182,6 +180,7 @@ function handleAddFormSubmit(evt) {
     disableButton(addCardSubmit);
     closeModal(addCardModal);
   })
+  .catch(console.error)
   .finally(() =>{
   handleLoadingState(addCardSubmit, false)
 });
@@ -191,10 +190,11 @@ function handleAvatarFormSubmit(evt){
   evt.preventDefault();
   handleLoadingState(avatarCardSubmit, true);
   api.editAvatarInfo(avatarModalInput.value)
-  .then((avatar) => {
-    avatarPicture.src = avatar.link;
+  .then((res) => {
+    avatarPicture.src = res.avatar;
     closeModal(avatarModal);
   })
+  .catch(console.error)
   .finally(() =>{
   handleLoadingState(avatarCardSubmit, false)});
 }
